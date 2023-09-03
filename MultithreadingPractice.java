@@ -10,7 +10,7 @@ public class MultithreadingPractice {
 
 // Problem statement: You need to run the below code with at least three threads (name those threads as A,B,C....), 
 //and find the output.
-
+//https://codein.withgoogle.com/archive/2018/organization/5191613659742208/task/5326133142749184/
 // Initialize a variable sum = 0
 // Run a for loop for 10 times. i.e : for(int x = 0; x < 10; x++) . Add the value x to the value sum in each iteration
 // Print the thread name, and the value as follows : "Thread : A - value : 45 " in each iteration
