@@ -2,9 +2,22 @@ import java.lang.Thread;
 
 public class MultithreadingPractice {
 
+
     public class PracticeThread extends Thread {
-        public void run () {
-            System.out.println("Thread " + Thread.currentThread().getName() + "is being executed by one of the core of the CPU.");
+
+        private String threadName;
+        public PracticeThread(String threadName) {
+            this.threadName = threadName;
+        }
+
+        public void run() {
+            System.out.println("Thread " + this.threadName + "is being executed by one of the cores of the CPU.");
+            int sum = 0;
+            for (int i=1; i <=10; i++) {
+                sum += i;
+                System.out.println("Thread : " + this.threadName + " - value : " + sum);
+                Thread.sleep(2000);
+            }
         }
     }
 
@@ -16,21 +29,25 @@ public class MultithreadingPractice {
 // Print the thread name, and the value as follows : "Thread : A - value : 45 " in each iteration
 // Finally Print the sum from each thread as follows : "Thread : A - Sum : 45 "
 
-    public static void printSumOfNumsWithMultithreading() {
-        Thread t1 = new Thread("A");
-        Thread t2 = new Thread("B");
-        Thread t3 = new Thread("C");
-        int sum = 0;
-        for (int i=1; i <=10; i++) {
-            sum += i;
-            System.out.println("Thread : " + t1.getName() + " - value : " + sum);
-            t1.start();
-            t2.start();
-            t3.start();
-        }
-    }
+    // public static void printSumOfNumsWithMultithreading() {
+    //     Thread t1 = new Thread("A");
+    //     Thread t2 = new Thread("B");
+    //     Thread t3 = new Thread("C");
+    //     int sum = 0;
+    //     for (int i=1; i <=10; i++) {
+    //         sum += i;
+    //         System.out.println("Thread : " + t1.getName() + " - value : " + sum);
+    //         t1.start();
+    //         t2.start();
+    //         t3.start();
+    //     }
+    // }
 
     public static void main(String[] args) {
-        printSumOfNumsWithMultithreading();
+        for (int i=0; i < 3; i++) {
+            String threadName = "" + (char) (i + 65);
+            PracticeThread currThread = new PracticeThread(threadName);
+            currThread.start();
+        }
     }
 }
