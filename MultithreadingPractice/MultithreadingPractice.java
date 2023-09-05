@@ -1,25 +1,8 @@
-import java.lang.Thread;
+package MultithreadingPractice;
+
+import MultithreadingPractice.PracticeThread;
 
 public class MultithreadingPractice {
-
-
-    public class PracticeThread extends Thread {
-
-        private String threadName;
-        public PracticeThread(String threadName) {
-            this.threadName = threadName;
-        }
-
-        public void run() {
-            System.out.println("Thread " + this.threadName + "is being executed by one of the cores of the CPU.");
-            int sum = 0;
-            for (int i=1; i <=10; i++) {
-                sum += i;
-                System.out.println("Thread : " + this.threadName + " - value : " + sum);
-                Thread.sleep(2000);
-            }
-        }
-    }
 
 // Problem statement: You need to run the below code with at least three threads (name those threads as A,B,C....), 
 //and find the output.
