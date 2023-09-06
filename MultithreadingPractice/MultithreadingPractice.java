@@ -1,6 +1,6 @@
 package MultithreadingPractice;
 
-import MultithreadingPractice.PracticeThread;
+import ExtendingThread.PracticeThread;
 
 public class MultithreadingPractice {
 

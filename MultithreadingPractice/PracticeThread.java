@@ -1,8 +1,13 @@
-package MultithreadingPractice;
+package ExtendingThread;
 
 import java.lang.Thread;
 
 public class PracticeThread extends Thread {
+
+    String name = "";
+    public PracticeThread(String name) {
+        this.name = name;
+    }
 
     public void run() {
         System.out.println("Thread " + Thread.currentThread().getName() + "is being executed by one of the cores of the CPU.");
@@ -10,7 +15,12 @@ public class PracticeThread extends Thread {
         for (int i=1; i <=10; i++) {
             sum += i;
             System.out.println("Thread : " + Thread.currentThread().getName() + " - value : " + sum);
-            Thread.sleep(2000);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                System.out.println("Thread was sleeping for 2s and got interrupted.");
+            }
+        
         }
     }
 }
